@@ -6,10 +6,10 @@ import 'package:flutter_starter/presentation/login/widgets/login_body.dart';
 /// A description for LoginPage
 /// {@endtemplate}
 class LoginPage extends StatelessWidget {
-  /// {@macro login_page}
-  const LoginPage({super.key});
 
-  /// The static route for LoginPage
+  const LoginPage({super.key});
+  static const pageName = "LoginPage";
+  
   static Route<dynamic> route() {
     return MaterialPageRoute<dynamic>(builder: (_) => const LoginPage());
   }

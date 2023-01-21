@@ -9,7 +9,7 @@ Future<void> init() async {
   // final config = EnvConfig.getInstance();
   final prefs = await SharedPreferences.getInstance();
 
-  // sl.registerLazySingleton(() => prefs);
+  sl.registerLazySingleton(() => prefs);
 
   // /// [flavor]
   // /// implementation flavor with different [environment] both ios and android

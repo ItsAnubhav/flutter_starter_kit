@@ -12,9 +12,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SplashBloc(),
-      child: const Scaffold(
-        body: SplashView(),
-      ),
+      child: const SplashView(),
     );
   }
 }

@@ -1,19 +1,22 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_starter/presentation/login/login.dart';
 part 'splash_event.dart';
 part 'splash_state.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   SplashBloc() : super(const SplashInitial()) {
-    on<CustomSplashEvent>(_onCustomSplashEvent);
+    on<NavigateToMainEvent>(_onCustomSplashEvent);
   }
 
   FutureOr<void> _onCustomSplashEvent(
-    CustomSplashEvent event,
+    NavigateToMainEvent event,
     Emitter<SplashState> emit,
   ) {
-    // TODO: Add Logic
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushNamed(event.context, LoginPage.pageName);
+    });
   }
 }

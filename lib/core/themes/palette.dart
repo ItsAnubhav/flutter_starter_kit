@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Palette {
-  // Material UI Color Scheme
   static const primaryColor = Color(0xFF2962ff);
   static const primaryColorLight = Color(0xFF768fff);
   static const primaryColorDark = Color(0xFF0039cb);

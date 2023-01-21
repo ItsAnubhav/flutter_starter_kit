@@ -8,7 +8,6 @@ import 'package:flutter_starter/presentation/login/login.dart';
 /// Add what it does
 /// {@endtemplate}
 class LoginBody extends StatelessWidget {
-  /// {@macro login_body}
   const LoginBody({super.key});
 
   @override

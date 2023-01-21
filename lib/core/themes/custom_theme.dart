@@ -4,7 +4,7 @@ import 'package:flutter_starter/core/themes/palette.dart';
 import 'package:flutter_starter/core/themes/typography.dart';
 
 class CustomTheme {
-  static AppBarTheme appbarTHeme = AppBarTheme(
+  static AppBarTheme appbarTheme = AppBarTheme(
     elevation: 1,
     systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -49,7 +49,7 @@ class CustomTheme {
   static final elevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      primary: Palette.primaryColor,
+      backgroundColor: Palette.primaryColor,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -106,6 +106,7 @@ class CustomTheme {
   );
 
   static final lightTheme = ThemeData(
+    useMaterial3: false,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.light,
     primaryColor: Palette.primaryColor,
@@ -114,9 +115,7 @@ class CustomTheme {
     secondaryHeaderColor: Palette.secondaryColorDark,
     colorScheme: const ColorScheme(
       primary: Palette.primaryColor,
-      primaryVariant: Palette.primaryVariant,
       secondary: Palette.secondaryColor,
-      secondaryVariant: Palette.secondaryVariant,
       surface: Palette.surface,
       background: Palette.background,
       error: Palette.error,
@@ -127,11 +126,10 @@ class CustomTheme {
       onError: Palette.onError,
       brightness: Brightness.light,
     ),
-    textTheme: textTheme,
     disabledColor: Colors.grey,
     dividerColor: Palette.dividerColor.withOpacity(0.5),
     hintColor: Colors.grey,
-    appBarTheme: appbarTHeme,
+    appBarTheme: appbarTheme,
     inputDecorationTheme: inputDecorationTheme,
     iconTheme: const IconThemeData(
       color: Colors.black54,
@@ -153,6 +151,7 @@ class CustomTheme {
   );
 
   static final darkTheme = ThemeData(
+    useMaterial3: true,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.grey[900],
     brightness: Brightness.dark,
@@ -162,9 +161,7 @@ class CustomTheme {
     secondaryHeaderColor: Palette.secondaryColorDark,
     colorScheme: const ColorScheme(
       primary: Palette.primaryColorLight,
-      primaryVariant: Palette.primaryVariant,
       secondary: Palette.secondaryColor,
-      secondaryVariant: Palette.secondaryVariant,
       surface: Palette.surfaceDark,
       background: Palette.backgroundDark,
       error: Palette.error,
@@ -178,8 +175,7 @@ class CustomTheme {
     disabledColor: Palette.disabledColor,
     dividerColor: Palette.dividerColor.withOpacity(0.5),
     hintColor: Colors.grey,
-    textTheme: textTheme,
-    appBarTheme: appbarTHeme.copyWith(
+    appBarTheme: appbarTheme.copyWith(
       systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.light,

@@ -4,12 +4,10 @@ abstract class SplashEvent  extends Equatable {
   const SplashEvent();
 }
 
-/// {@template custom_splash_event}
-/// Event added when some custom logic happens
-/// {@endtemplate}
-class CustomSplashEvent extends SplashEvent {
-  /// {@macro custom_splash_event}
-  const CustomSplashEvent();
+class NavigateToMainEvent extends SplashEvent {
+  final BuildContext context;
+  const NavigateToMainEvent(this.context);
+
 
 
   @override
