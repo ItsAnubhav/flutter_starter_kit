@@ -109,6 +109,7 @@ class CustomTheme {
     useMaterial3: false,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.light,
+    scaffoldBackgroundColor:  Palette.background,
     primaryColor: Palette.primaryColor,
     primaryColorDark: Palette.primaryColorDark,
     primaryColorLight: Palette.primaryColorLight,
@@ -153,7 +154,7 @@ class CustomTheme {
   static final darkTheme = ThemeData(
     useMaterial3: true,
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    scaffoldBackgroundColor: Colors.grey[900],
+    scaffoldBackgroundColor: Colors.black,
     brightness: Brightness.dark,
     primaryColor: Palette.primaryColor,
     primaryColorDark: Palette.primaryColorDark,

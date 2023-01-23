@@ -11,7 +11,7 @@ class Palette {
   static const secondaryVariant = Color(0xFF2196f3);
   static const surface = Colors.white;
   static const surfaceDark = Color(0xFF424242);
-  static const background = Color(0xFFF6F6F6);
+  static const background = Color(0xFFFFFFFF);
   static const backgroundDark = Color(0xFF1F1F1F);
   static const error = Color(0xFFDC3545);
   static const onPrimary = Colors.white;

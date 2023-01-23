@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/presentation/login/bloc/bloc.dart';
 import 'package:flutter_starter/presentation/login/widgets/login_body.dart';
 
-/// {@template login_page}
-/// A description for LoginPage
-/// {@endtemplate}
 class LoginPage extends StatelessWidget {
 
   const LoginPage({super.key});
