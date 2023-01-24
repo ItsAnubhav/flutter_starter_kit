@@ -17,7 +17,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     Emitter<SplashState> emit,
   ) {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushNamed(event.context, routes.login);
+      Navigator.pushNamedAndRemoveUntil(event.context, routes.login,(_)=>false);
     });
   }
 }

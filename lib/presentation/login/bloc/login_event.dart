@@ -4,15 +4,18 @@ abstract class LoginEvent  extends Equatable {
   const LoginEvent();
 }
 
-/// {@template custom_login_event}
-/// Event added when some custom logic happens
-/// {@endtemplate}
 class CustomLoginEvent extends LoginEvent {
-  /// {@macro custom_login_event}
-  const CustomLoginEvent();
 
+  const CustomLoginEvent();
 
   @override
   List<Object> get props => [];
+}
 
+class OnRegisterClicked extends LoginEvent{
+  BuildContext context;
+  OnRegisterClicked(this.context);
+
+  @override
+  List<Object?> get props => [];
 }

@@ -5,11 +5,6 @@ import 'package:flutter_starter/presentation/login/widgets/login_body.dart';
 class LoginPage extends StatelessWidget {
 
   const LoginPage({super.key});
-  static const pageName = "LoginPage";
-  
-  static Route<dynamic> route() {
-    return MaterialPageRoute<dynamic>(builder: (_) => const LoginPage());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +17,8 @@ class LoginPage extends StatelessWidget {
   }    
 }
 
-/// {@template login_view}
-/// Displays the Body of LoginView
-/// {@endtemplate}
+
 class LoginView extends StatelessWidget {
-  /// {@macro login_view}
   const LoginView({super.key});
 
   @override
