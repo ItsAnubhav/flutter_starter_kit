@@ -12,6 +12,17 @@ class CustomLoginEvent extends LoginEvent {
   List<Object> get props => [];
 }
 
+class OnLoginClicked extends LoginEvent{
+
+  late String email,password;
+
+  OnLoginClicked({required this.email,required this.password});
+
+  @override
+  List<Object?> get props => [email,password];
+
+}
+
 class OnRegisterClicked extends LoginEvent{
   BuildContext context;
   OnRegisterClicked(this.context);

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_starter/core/constants/app_constants.dart';
 import 'package:flutter_starter/core/routes/route_generator.dart';
+import 'package:flutter_starter/core/routes/routes.dart';
 import 'package:flutter_starter/core/themes/custom_theme.dart';
 import 'package:flutter_starter/presentation/splash/splash.dart';
 import 'presentation/app/app_bloc_observer.dart';
-import 'package:flutter_starter/core/routes/routes.dart' as route;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +25,6 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
-        initialRoute: route.splash);
+        initialRoute: Routes.splash);
   }
 }

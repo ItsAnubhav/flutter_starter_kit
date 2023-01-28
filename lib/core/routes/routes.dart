@@ -1,7 +1,10 @@
-const String splash = 'splash';
-const String login = 'login';
-const String home = 'home';
-const String otpVerification = 'otpverification';
-const String resetPass = 'resetpass';
-const String signup = 'signup';
-const String forgetPass = 'forgetpassword';
+class Routes{
+  static const String splash = 'splash';
+  static const String login = 'login';
+  static const String home = 'home';
+  static const String otpVerification = 'otpverification';
+  static const String resetPass = 'resetpass';
+  static const String signup = 'signup';
+  static const String forgetPass = 'forgetpassword';
+
+}

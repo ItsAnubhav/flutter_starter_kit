@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_starter/core/routes/routes.dart';
 import 'package:flutter_starter/core/themes/palette.dart';
 import 'package:flutter_starter/presentation/common/custom_container.dart';
 import 'package:flutter_starter/presentation/common/my_button.dart';
 import 'package:flutter_starter/presentation/common/my_text_field.dart';
 import 'package:flutter_starter/presentation/signup/bloc/bloc.dart';
-import 'package:flutter_starter/core/routes/routes.dart' as routes;
 
 class SignupPage extends StatelessWidget {
 
@@ -88,7 +88,7 @@ class SignupView extends StatelessWidget {
                         color: Palette.primaryColor,
                         fontWeight: FontWeight.normal
                     ),
-                    recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, routes.signup),
+                    recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, Routes.signup),
                   ),
                   const TextSpan(
                     text: ' and ',
@@ -100,7 +100,7 @@ class SignupView extends StatelessWidget {
                         color: Palette.primaryColor,
                         fontWeight: FontWeight.normal
                     ),
-                    recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, routes.signup),
+                    recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, Routes.signup),
                   )
                 ]),
               ),),
@@ -133,7 +133,7 @@ class SignupView extends StatelessWidget {
                         color: Palette.primaryColor,
                         fontWeight: FontWeight.normal
                     ),
-                    recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, routes.signup),
+                    recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, Routes.login),
                   )
                 ]),
               ),

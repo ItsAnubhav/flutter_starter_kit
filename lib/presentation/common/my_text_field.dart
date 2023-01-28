@@ -126,19 +126,16 @@ class _MyTextFieldState extends State<MyTextField> {
               : "Enter ${widget.labelText}",
           prefixIcon: widget.prefixIcon,
           suffixIcon: widget.showTrailingWidget
-              ? widget.trailing == null
-              ? widget.isPasswordField
+              ? widget.trailing ?? (widget.isPasswordField
               ? IconButton(
             padding: const EdgeInsets.only(right: 5.0),
             splashRadius: 1,
-            color: Theme.of(context).accentColor,
             icon: _showPassword
                 ? Icon(Icons.visibility, size: 25.0)
                 : Icon(Icons.visibility_off, size: 25.0),
             onPressed: toggleShowPassword,
           )
-              : null
-              : widget.trailing
+              : null)
               : null,
         ),
       ),
