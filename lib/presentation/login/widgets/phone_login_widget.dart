@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/presentation/common/my_button.dart';
-import 'package:flutter_starter/presentation/common/my_text_field.dart';
+import 'package:flutter_starter/core/utility/AppUtils.dart';
+import 'package:flutter_starter/presentation/common_old/my_button.dart';
+import 'package:flutter_starter/presentation/common_old/my_text_field.dart';
+
+typedef OnSendOtpClicked = void Function(String phoneNo);
 
 class PhoneLoginWidget extends StatelessWidget {
-  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController phoneController =
+      TextEditingController(text: "9999999999");
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  const PhoneLoginWidget({super.key});
+  final OnSendOtpClicked onSendOtpClicked;
+
+  PhoneLoginWidget({super.key, required this.onSendOtpClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,8 @@ class PhoneLoginWidget extends StatelessWidget {
             onTap: () {
               if (formKey.currentState!.validate()) {
                 AppUtils.hideKeyboard();
-                onLogin("+91${phoneController.text}");
+                //onLogin("+91${phoneController.text}");
+                onSendOtpClicked("+91${phoneController.text}");
               }
             },
             margin: const EdgeInsets.fromLTRB(15, 5, 15, 10),

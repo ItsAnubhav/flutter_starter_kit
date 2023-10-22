@@ -25,6 +25,10 @@ class Palette {
   static const orange = Color(0xFFEE8043);
   static const green = Color(0xFF5BB16F);
 
+  static const Color kcMediumGreyColor = Color(0xff868686);
+  static const Color kcLightGreyColor = Color(0xffe5e5e5);
+  static const Color kcVeryLightGreyColor = Color(0xfff2f2f2);
+
   // App Color
   static const disabledColor = Color(0xFFF3F3F3);
   static const dividerColor = Colors.grey;

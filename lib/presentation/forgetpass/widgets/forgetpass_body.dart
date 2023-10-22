@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/themes/palette.dart';
 import 'package:flutter_starter/core/utility/ColorUtils.dart';
-import 'package:flutter_starter/presentation/common/my_button.dart';
-import 'package:flutter_starter/presentation/common/my_text_field.dart';
+import 'package:flutter_starter/presentation/common_old/my_button.dart';
+import 'package:flutter_starter/presentation/common_old/my_text_field.dart';
 import 'package:flutter_starter/presentation/forgetpass/bloc/bloc.dart';
 
 class ForgetPassBody extends StatelessWidget {
@@ -42,6 +42,7 @@ class ForgetPassBody extends StatelessWidget {
                     focusedBorderColor: Colors.transparent,
                     margin: const EdgeInsets.fromLTRB(15, 20, 15, 0),
                     prefixIcon: const Icon(Icons.alternate_email_outlined),
+                    validator: (value) {},
                   ),
                   const SizedBox(
                     height: 20,

@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/constants/app_constants.dart';
 import 'package:flutter_starter/core/routes/routes.dart';
 import 'package:flutter_starter/core/themes/palette.dart';
-import 'package:flutter_starter/presentation/common/custom_container.dart';
-import 'package:flutter_starter/presentation/common/my_button.dart';
-import 'package:flutter_starter/presentation/common/my_text_field.dart';
+import 'package:flutter_starter/presentation/common_old/custom_container.dart';
+import 'package:flutter_starter/presentation/common_old/my_button.dart';
+import 'package:flutter_starter/presentation/common_old/my_text_field.dart';
 import 'package:flutter_starter/presentation/login/bloc/bloc.dart';
-import 'package:flutter_starter/presentation/login/widgets/login_body.dart';
+import 'package:flutter_starter/presentation/login/widgets/email_login_widget.dart';
+import 'package:flutter_starter/presentation/login/widgets/phone_login_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
@@ -41,9 +42,9 @@ class LoginBody extends StatelessWidget {
                     child: Image.network(
                         "https://img.freepik.com/free-vector/self-care-illustration-concept_23-2148526939.jpg?w=740&t=st=1674495366~exp=1674495966~hmac=cd69d5c59fab7871b9eb704cfb55890a74120e364802c9cff15389f56c52453d"),
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Padding(
                         padding: EdgeInsets.only(left: 15, right: 15),
                         child: Text(
@@ -54,48 +55,11 @@ class LoginBody extends StatelessWidget {
                       )
                     ],
                   ),
-                  MyTextField(
-                    labelText: "Email",
-                    onChanged: (data) {},
-                    borderColor: Colors.transparent,
-                    focusedBorderColor: Colors.transparent,
-                    margin: const EdgeInsets.fromLTRB(15, 20, 15, 0),
-                    prefixIcon: const Icon(Icons.alternate_email_outlined),
-                  ),
-                  MyTextField(
-                    labelText: "Password",
-                    onChanged: (data) {},
-                    borderColor: Colors.transparent,
-                    focusedBorderColor: Colors.transparent,
-                    margin: const EdgeInsets.fromLTRB(15, 15, 15, 5),
-                    isPasswordField: true,
-                    prefixIcon: const Icon(Icons.lock_outline),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, Routes.forgetPass);
-                            },
-                            child: const Text(
-                              "Forgot Password?",
-                              style: TextStyle(color: Palette.primaryColor),
-                            )),
-                      )
-                    ],
-                  ),
-                  MyButton(
-                    text: "Login",
-                    percentage: state is LoginLoading ? state.progress : 100,
-                    onTap: () {
-                      context.read<LoginBloc>().add(
-                          OnLoginClicked(email: "email", password: "password"));
+                  PhoneLoginWidget(
+                    onSendOtpClicked: (String phoneNo) {
+                      Navigator.pushNamed(context, Routes.otpVerification,
+                          arguments: {'phone_no': phoneNo});
                     },
-                    margin: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-                    borderRadius: 10,
                   ),
                   const SizedBox(
                     height: 20,

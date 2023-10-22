@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/presentation/splash/bloc/bloc.dart';
-import 'package:flutter_starter/presentation/splash/widgets/splash_body.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_starter/presentation/splash/bloc/splash_bloc.dart';
 
 class SplashPage extends StatelessWidget {
   /// {@macro splash_page}
@@ -12,7 +12,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SplashBloc(),
-      child: const SplashView(),
+      child: const SplashBody(),
     );
   }
 }
@@ -20,12 +20,18 @@ class SplashPage extends StatelessWidget {
 /// {@template splash_view}
 /// Displays the Body of SplashView
 /// {@endtemplate}
-class SplashView extends StatelessWidget {
-  /// {@macro splash_view}
-  const SplashView({super.key});
+class SplashBody extends StatelessWidget {
+  const SplashBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SplashBody();
+    return BlocBuilder<SplashBloc, SplashState>(
+      builder: (context, state) {
+        SplashBloc().add(NavigateToMainEvent(context));
+        return Scaffold(
+          backgroundColor: Theme.of(context).backgroundColor,
+        );
+      },
+    );
   }
 }

@@ -2,15 +2,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/routes/routes.dart';
 import 'package:flutter_starter/presentation/forgetpass/forgetpass.dart';
-import 'package:flutter_starter/presentation/login/login.dart';
-import 'package:flutter_starter/presentation/otpverification/otpverification.dart';
+import 'package:flutter_starter/presentation/login/view/login_page.dart';
+import 'package:flutter_starter/presentation/otpverification/view/otpverification_page.dart';
 import 'package:flutter_starter/presentation/resetpass/resetpass.dart';
 import 'package:flutter_starter/presentation/signup/signup.dart';
-import 'package:flutter_starter/presentation/splash/splash.dart';
+import 'package:flutter_starter/presentation/splash/view/splash_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final arguments = settings.arguments;
     if (kDebugMode) {
       print("PUSHED ${settings.name} WITH ARGS: ${settings.arguments}");
     }
@@ -24,7 +24,12 @@ class RouteGenerator {
       case Routes.forgetPass:
         return MaterialPageRoute(builder: (ctx) => const ForgetPassPage());
       case Routes.otpVerification:
-        return MaterialPageRoute(builder: (ctx) => const OtpVerificationPage());
+        final args = settings.arguments as Map<String, dynamic>;
+        final phoneNo = args['phone_no'] as String;
+        return MaterialPageRoute(
+            builder: (ctx) => OtpVerificationPage(
+                  phoneNo: phoneNo,
+                ));
       case Routes.resetPass:
         return MaterialPageRoute(builder: (ctx) => const ResetpassPage());
       default:
