@@ -30,7 +30,7 @@ class MyTextField extends StatefulWidget {
   final VoidCallback? onTap;
   final Icon? prefixIcon;
 
-   MyTextField({
+  MyTextField({
     required this.labelText,
     required this.onChanged,
     this.key,
@@ -68,7 +68,6 @@ class MyTextField extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<MyTextField> {
-
   bool _showPassword = false;
 
   @override
@@ -126,16 +125,17 @@ class _MyTextFieldState extends State<MyTextField> {
               : "Enter ${widget.labelText}",
           prefixIcon: widget.prefixIcon,
           suffixIcon: widget.showTrailingWidget
-              ? widget.trailing ?? (widget.isPasswordField
-              ? IconButton(
-            padding: const EdgeInsets.only(right: 5.0),
-            splashRadius: 1,
-            icon: _showPassword
-                ? Icon(Icons.visibility, size: 25.0)
-                : Icon(Icons.visibility_off, size: 25.0),
-            onPressed: toggleShowPassword,
-          )
-              : null)
+              ? widget.trailing ??
+                  (widget.isPasswordField
+                      ? IconButton(
+                          padding: const EdgeInsets.only(right: 5.0),
+                          splashRadius: 1,
+                          icon: _showPassword
+                              ? Icon(Icons.visibility, size: 25.0)
+                              : Icon(Icons.visibility_off, size: 25.0),
+                          onPressed: toggleShowPassword,
+                        )
+                      : null)
               : null,
         ),
       ),
