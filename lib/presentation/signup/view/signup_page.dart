@@ -2,9 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/routes/routes.dart';
 import 'package:flutter_starter/core/themes/palette.dart';
-import 'package:flutter_starter/presentation/common_old/custom_container.dart';
-import 'package:flutter_starter/presentation/common_old/my_button.dart';
-import 'package:flutter_starter/presentation/common_old/my_text_field.dart';
+import 'package:flutter_starter/common/custom_container.dart';
+import 'package:flutter_starter/common/my_button.dart';
+import 'package:flutter_starter/common/my_text_field.dart';
 import 'package:flutter_starter/presentation/signup/bloc/bloc.dart';
 
 class SignupPage extends StatelessWidget {

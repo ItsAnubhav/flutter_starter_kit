@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/presentation/common_old/boxed_text_field.dart';
-import 'package:flutter_starter/presentation/common_old/my_button.dart';
+import 'package:flutter_starter/common/boxed_text_field.dart';
+import 'package:flutter_starter/common/my_button.dart';
 import 'package:flutter_starter/presentation/otpverification/bloc/bloc.dart';
 
 class OtpVerificationPage extends StatelessWidget {

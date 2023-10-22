@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:starter_kit/core/constants/api_path.dart';
+import 'package:flutter_starter/core/constants/app_constants.dart';
 
 class ImageWidget extends StatelessWidget {
   final String imageUrl;
@@ -27,7 +27,7 @@ class ImageWidget extends StatelessWidget {
           CachedNetworkImage(
             imageUrl: imageUrl.startsWith("http")
                 ? imageUrl
-                : Urls.imgBaseUrl + imageUrl,
+                : AppConstants.imgBaseUrl + imageUrl,
             fit: BoxFit.cover,
             height: height,
             width: width,
