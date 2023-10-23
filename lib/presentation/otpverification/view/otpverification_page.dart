@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/common/boxed_text_field.dart';
-import 'package:flutter_starter/common/my_button.dart';
-import 'package:flutter_starter/presentation/otpverification/bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_starter/presentation/otpverification/bloc/otpverification_bloc.dart';
+import 'package:flutter_starter/widgets/boxed_text_field.dart';
+import 'package:flutter_starter/widgets/my_button.dart';
 
 class OtpVerificationPage extends StatelessWidget {
   final String phoneNo;

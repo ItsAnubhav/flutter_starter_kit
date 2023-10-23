@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/common/loading/three_arched_circle.dart';
+import 'package:flutter_starter/widgets/loading/three_arched_circle.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({Key? key}) : super(key: key);

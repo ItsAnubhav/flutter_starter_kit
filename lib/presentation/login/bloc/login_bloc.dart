@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/presentation/login/bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -12,7 +12,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<OnLoginClicked>(_onLoginClicked);
   }
 
-  FutureOr<void> _onLoginClicked(OnLoginClicked event, Emitter<LoginState> emit,) async {
+  FutureOr<void> _onLoginClicked(
+    OnLoginClicked event,
+    Emitter<LoginState> emit,
+  ) async {
     int i = 0;
     emit(LoginLoading(progress: i));
     await Future.delayed(Duration(seconds: 2));

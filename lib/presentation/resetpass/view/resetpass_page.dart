@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/presentation/resetpass/bloc/bloc.dart';
-import 'package:flutter_starter/presentation/resetpass/widgets/resetpass_body.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_starter/presentation/resetpass/bloc/resetpass_bloc.dart';
 
-/// {@template resetpass_page}
-/// A description for ResetpassPage
-/// {@endtemplate}
 class ResetpassPage extends StatelessWidget {
   /// {@macro resetpass_page}
   const ResetpassPage({super.key});
@@ -19,21 +16,22 @@ class ResetpassPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => ResetpassBloc(),
       child: const Scaffold(
-        body: ResetpassView(),
+        body: ResetpassBody(),
       ),
     );
-  }    
+  }
 }
 
-/// {@template resetpass_view}
-/// Displays the Body of ResetpassView
-/// {@endtemplate}
-class ResetpassView extends StatelessWidget {
-  /// {@macro resetpass_view}
-  const ResetpassView({super.key});
+class ResetpassBody extends StatelessWidget {
+  /// {@macro resetpass_body}
+  const ResetpassBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const ResetpassBody();
+    return BlocBuilder<ResetpassBloc, ResetpassState>(
+      builder: (context, state) {
+        return Center(child: Text(state.customProperty));
+      },
+    );
   }
 }

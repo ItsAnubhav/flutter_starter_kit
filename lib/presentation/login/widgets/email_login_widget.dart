@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/routes/routes.dart';
 import 'package:flutter_starter/core/themes/palette.dart';
-import 'package:flutter_starter/common/my_button.dart';
-import 'package:flutter_starter/common/my_text_field.dart';
+import 'package:flutter_starter/widgets/my_button.dart';
+import 'package:flutter_starter/widgets/my_text_field.dart';
 
 typedef OnLoginClicked = void Function(String email, String password);
 
