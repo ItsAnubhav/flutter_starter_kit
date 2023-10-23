@@ -1,12 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/routes/routes.dart';
-import 'package:flutter_starter/presentation/forgetpass/forgetpass.dart';
 import 'package:flutter_starter/presentation/login/view/login_page.dart';
 import 'package:flutter_starter/presentation/otpverification/view/otpverification_page.dart';
-import 'package:flutter_starter/presentation/resetpass/resetpass.dart';
-import 'package:flutter_starter/presentation/signup/signup.dart';
+import '../../presentation/signup/view/signup_page.dart';
 import 'package:flutter_starter/presentation/splash/view/splash_page.dart';
+
+import '../../presentation/forgetpass/view/forgetpass_page.dart';
+import '../../presentation/resetpass/view/resetpass_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

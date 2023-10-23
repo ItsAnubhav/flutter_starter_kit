@@ -1,11 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_starter/core/routes/routes.dart';
 import 'package:flutter_starter/core/themes/palette.dart';
-import 'package:flutter_starter/common/custom_container.dart';
-import 'package:flutter_starter/common/my_button.dart';
-import 'package:flutter_starter/common/my_text_field.dart';
-import 'package:flutter_starter/presentation/signup/bloc/bloc.dart';
+import 'package:flutter_starter/presentation/signup/bloc/signup_bloc.dart';
+import 'package:flutter_starter/widgets/custom_container.dart';
+import 'package:flutter_starter/widgets/my_button.dart';
+import 'package:flutter_starter/widgets/my_text_field.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -19,14 +20,14 @@ class SignupPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => SignupBloc(),
       child: const Scaffold(
-        body: SignupView(),
+        body: SignupBody(),
       ),
     );
   }
 }
 
-class SignupView extends StatelessWidget {
-  const SignupView({super.key});
+class SignupBody extends StatelessWidget {
+  const SignupBody({super.key});
 
   @override
   Widget build(BuildContext context) {
