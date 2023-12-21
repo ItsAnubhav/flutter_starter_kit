@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_starter/core/themes/palette.dart';
-import 'package:flutter_starter/core/themes/typography.dart';
+import '../themes/typography.dart';
+import '../themes/palette.dart';
 
 class CustomTheme {
   static AppBarTheme appbarTheme = AppBarTheme(
     elevation: 1,
     systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.light,
       systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
-    color: const Color(0xFFFFFFFF),
+    color: Palette.primaryColor,
     titleTextStyle: MyTypography.headline6.copyWith(
-      color: Palette.onBackground,
+      color: Palette.surface,
+    ),
+    actionsIconTheme: const IconThemeData(
+      color: Palette.surface,
     ),
     iconTheme: const IconThemeData(
-      color: Palette.onBackground,
+      color: Palette.surface,
     ),
-    centerTitle: true,
+    centerTitle: false,
   );
 
   static final inputDecorationTheme = InputDecorationTheme(
@@ -59,7 +62,7 @@ class CustomTheme {
 
   static final outlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      primary: Palette.primaryColor,
+      foregroundColor: Palette.primaryColor,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -75,7 +78,7 @@ class CustomTheme {
 
   static final outlinedButtonThemeDark = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      primary: Palette.primaryColor,
+      foregroundColor: Palette.primaryColorLight,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -90,27 +93,26 @@ class CustomTheme {
   );
 
   static final textTheme = TextTheme(
-    headline1: MyTypography.headline1,
-    headline2: MyTypography.headline2,
-    headline3: MyTypography.headline3,
-    headline4: MyTypography.headline4,
-    headline5: MyTypography.headline5,
-    headline6: MyTypography.headline6,
-    subtitle1: MyTypography.subtitle1,
-    subtitle2: MyTypography.subtitle2,
-    bodyText1: MyTypography.bodyText1,
-    bodyText2: MyTypography.bodyText2,
-    button: MyTypography.button,
-    caption: MyTypography.caption,
-    overline: MyTypography.overline,
-  );
+      displayLarge: MyTypography.headline1,
+      displayMedium: MyTypography.headline2,
+      displaySmall: MyTypography.headline3,
+      headlineMedium: MyTypography.headline4,
+      headlineSmall: MyTypography.headline5,
+      titleLarge: MyTypography.headline6,
+      titleMedium: MyTypography.subtitle1,
+      titleSmall: MyTypography.subtitle2,
+      bodyLarge: MyTypography.bodyText1,
+      bodyMedium: MyTypography.bodyText2,
+      labelLarge: MyTypography.button,
+      bodySmall: MyTypography.caption,
+      labelSmall: MyTypography.overline);
 
   static final lightTheme = ThemeData(
-    useMaterial3: false,
+    useMaterial3: true,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.light,
     textTheme: textTheme,
-    scaffoldBackgroundColor:  Palette.background,
+    scaffoldBackgroundColor: Palette.background,
     primaryColor: Palette.primaryColor,
     primaryColorDark: Palette.primaryColorDark,
     primaryColorLight: Palette.primaryColorLight,

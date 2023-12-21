@@ -49,9 +49,8 @@ class MyTypography {
   );
 
   static TextStyle bodyText1 = GoogleFonts.nunito(
-    fontSize: 16,
+    fontSize: 19,
     fontWeight: FontWeight.w400,
-    letterSpacing: 0.5,
   );
 
   static TextStyle bodyText2 = GoogleFonts.nunito(

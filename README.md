@@ -1,2 +1,3 @@
-# flutter_starter
-mason make feature_brick --feature_name {feature_name}
+# base_app
+
+A new Flutter project.

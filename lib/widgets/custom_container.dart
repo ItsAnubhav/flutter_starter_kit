@@ -12,6 +12,7 @@ class CustomContainer extends StatelessWidget {
   final Color borderColor;
   final Color backgroundColor;
   final double borderRadius;
+  final double shadowHeight;
   final Color shadowColor;
 
   const CustomContainer({
@@ -26,8 +27,9 @@ class CustomContainer extends StatelessWidget {
     this.borderWidth = 0,
     this.shadowColor = Colors.grey,
     this.padding = 10,
+    this.shadowHeight = 5,
     this.borderRadius = 5,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor = Colors.transparent,
   });
 
   @override
@@ -49,8 +51,8 @@ class CustomContainer extends StatelessWidget {
               ? []
               : [
                   BoxShadow(
-                    color: shadowColor.withOpacity(0.5),
-                    blurRadius: 20,
+                    color: shadowColor.withOpacity(0.2),
+                    blurRadius: shadowHeight,
                     offset: const Offset(0, 0), // changes position of shadow
                   ),
                 ]),

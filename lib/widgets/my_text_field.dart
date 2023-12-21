@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/core/themes/palette.dart';
+
+import '../core/themes/palette.dart';
+import '../core/utils/date_utils.dart';
 
 class MyTextField extends StatefulWidget {
-  @override
-  final Key? key;
   final String labelText;
   final void Function(String)? onChanged;
   final VoidCallback? trailingFunction;
@@ -11,6 +11,7 @@ class MyTextField extends StatefulWidget {
   final bool showTrailingWidget;
   final Widget? trailing;
   final bool autofocus;
+  final String dateTimeFormat;
   final TextEditingController? controller;
   final String? Function(String?) validator;
   final TextInputType? keyboardType;
@@ -27,13 +28,14 @@ class MyTextField extends StatefulWidget {
   final EdgeInsets? contentPadding;
   final Color? fillColor;
   final int maxLines;
+  final int minLines;
   final bool readOnly;
   final int? maxLength;
   final VoidCallback? onTap;
   final Icon? prefixIcon;
 
   const MyTextField({
-    this.key,
+    super.key,
     required this.labelText,
     this.onChanged,
     this.onTap,
@@ -44,11 +46,13 @@ class MyTextField extends StatefulWidget {
     this.controller,
     required this.validator,
     this.trailing,
+    this.dateTimeFormat = "dd MMM",
     this.width,
     this.margin,
     this.maxLength,
     this.readOnly = false,
     this.maxLines = 1,
+    this.minLines = 1,
     this.overrideHintText = false,
     this.showTrailingWidget = true,
     this.autofocus = false,
@@ -92,10 +96,21 @@ class _MyTextFieldState extends State<MyTextField> {
       margin: widget.margin,
       child: TextFormField(
         validator: widget.validator,
-        onTap: widget.onTap,
+        focusNode: widget.keyboardType == TextInputType.datetime
+            ? AlwaysDisabledFocusNode()
+            : null,
+        onTap: () {
+          if (widget.keyboardType == TextInputType.datetime) {
+            selectDate(context);
+          }
+          if (widget.onTap != null) {
+            widget.onTap!();
+          }
+        },
         controller: widget.controller,
         initialValue: widget.defaultValue,
         readOnly: widget.readOnly,
+        minLines: widget.minLines,
         textAlignVertical: TextAlignVertical.center,
         keyboardType: widget.keyboardType,
         maxLength: widget.maxLength,
@@ -107,10 +122,6 @@ class _MyTextFieldState extends State<MyTextField> {
           contentPadding: widget.contentPadding,
           fillColor: widget.fillColor,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.red, width: 1.0),
             borderRadius: BorderRadius.circular(widget.borderRadius),
           ),
           enabledBorder: OutlineInputBorder(
@@ -149,4 +160,40 @@ class _MyTextFieldState extends State<MyTextField> {
       ),
     );
   }
+
+  void selectDate(BuildContext context) async {
+    DateTime? newSelectedDate;
+    if (widget.dateTimeFormat.contains("dd") ||
+        widget.dateTimeFormat.contains("MM")) {
+      newSelectedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime.now().add(const Duration(days: 90)),
+      );
+    }
+    TimeOfDay? newSelectedTime;
+    if (widget.dateTimeFormat.contains("hh") ||
+        widget.dateTimeFormat.contains("mm")) {
+      newSelectedTime = await showTimePicker(
+        context: context,
+        initialTime: TimeOfDay.now(),
+      );
+    }
+    if (newSelectedDate != null) {
+      widget.controller?.text = DateUtility.formatDateTime(
+          dateTime: newSelectedDate, outputFormat: widget.dateTimeFormat);
+    }
+    if (newSelectedTime != null) {
+      widget.controller?.text = DateUtility.formatDateTime(
+          dateTime: DateTime.now().add(Duration(
+              hours: newSelectedTime.hour, minutes: newSelectedTime.minute)),
+          outputFormat: widget.dateTimeFormat);
+    }
+  }
+}
+
+class AlwaysDisabledFocusNode extends FocusNode {
+  @override
+  bool get hasFocus => false;
 }

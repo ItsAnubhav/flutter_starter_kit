@@ -4,6 +4,7 @@ class Palette {
   static const primaryColor = Color(0xFF2962ff);
   static const primaryColorLight = Color(0xFF768fff);
   static const primaryColorDark = Color(0xFF0039cb);
+
   static const primaryVariant = Color(0xFF0d47a1);
   static const secondaryColor = Color(0xFF1565c0);
   static const secondaryColorLight = Color(0xFF5e92f3);
