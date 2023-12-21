@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'core/firebase/firebase_service.dart';
 import 'core/themes/custom_theme.dart';
 import 'features/auth/presentation/forgot_password/bloc/auth_bloc.dart';
 import 'features/auth/presentation/forgot_password/pages/auth_page.dart';
@@ -15,6 +16,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await registerDependncies();
+  await initializeFirebase();
   bootstrap(() => const MainApp());
 }
 
