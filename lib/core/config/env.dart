@@ -1,12 +1,4 @@
-// ignore_for_file: constant_identifier_names
-
-// class Env {
-//   static const String PRODUCTION = 'prod';
-//   static const String QAS = 'QAS';
-//   static const String DEV = 'dev';
-//   static const String LOCAL = 'local';
-// }
-
+// ignore: constant_identifier_names
 enum Env { PRODUCTION, QAS, DEV, LOCAL }
 
 class ConfigEnvironments {

@@ -1,5 +1,4 @@
 import '../../../../../core/themes/typography.dart';
-import '../../../../../widgets/my_text_field.dart';
 import '/features/auth/presentation/forgot_password/bloc/auth_bloc.dart';
 import '/responsive_layout.dart';
 import 'package:flutter/material.dart';
@@ -29,28 +28,64 @@ class AuthBody extends StatelessWidget {
           automaticallyImplyLeading: true,
           elevation: 20,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                style: MyTypography.bodyText1,
+        body: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                    style: MyTypography.bodyText1,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: false,
+                            builder: (context) {
+                              return ListView(
+                                children: List.generate(
+                                    100,
+                                    (index) => ListTile(
+                                          title: Text("Item $index"),
+                                        )),
+                              );
+                            });
+                      },
+                      child: const Text(
+                        "Click me",
+                        style: TextStyle(color: Colors.white),
+                      ))
+                ],
               ),
-              MyTextField(
-                  controller: TextEditingController(),
-                  labelText: "Select date",
-                  dateTimeFormat: "dd MMM, yyyy hh:mm a",
-                  keyboardType: TextInputType.datetime,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  }),
-            ],
-          ),
+            ),
+            DraggableScrollableSheet(
+              initialChildSize: 0.30,
+              minChildSize: 0.15,
+              maxChildSize: 0.80,
+              builder:
+                  (BuildContext context, ScrollController scrollController) {
+                return ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: ListTile(
+                        title: Text("Item $index"),
+                      ),
+                    );
+                  },
+                  controller: scrollController,
+                  itemCount: 25,
+                );
+              },
+            ),
+          ],
         ));
   }
 }

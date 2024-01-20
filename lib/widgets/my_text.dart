@@ -57,12 +57,12 @@ class MyText extends StatelessWidget {
 // To make it clear which weight we are using, we'll define the weight even for regular
 // fonts
 const TextStyle heading1Style = TextStyle(
-  fontSize: 34,
+  fontSize: 28,
   fontWeight: FontWeight.w400,
 );
 
 const TextStyle heading2Style = TextStyle(
-  fontSize: 28,
+  fontSize: 26,
   fontWeight: FontWeight.w600,
 );
 
@@ -72,7 +72,7 @@ const TextStyle heading3Style = TextStyle(
 );
 
 const TextStyle headlineStyle = TextStyle(
-  fontSize: 30,
+  fontSize: 22,
   fontWeight: FontWeight.w700,
 );
 
