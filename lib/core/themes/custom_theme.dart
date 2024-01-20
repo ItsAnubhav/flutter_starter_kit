@@ -5,14 +5,14 @@ import '../themes/palette.dart';
 
 class CustomTheme {
   static AppBarTheme appbarTheme = AppBarTheme(
-    elevation: 1,
+    elevation: 0,
+    color: Palette.primaryColor,
     systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
       systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
-    color: Palette.primaryColor,
     titleTextStyle: MyTypography.headline6.copyWith(
       color: Palette.surface,
     ),
@@ -22,7 +22,7 @@ class CustomTheme {
     iconTheme: const IconThemeData(
       color: Palette.surface,
     ),
-    centerTitle: false,
+    centerTitle: true,
   );
 
   static final inputDecorationTheme = InputDecorationTheme(
