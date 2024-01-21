@@ -18,6 +18,7 @@ dependencies:
   go_router: ^13.0.0 
   shared_preferences: ^2.2.2
   floor: ^1.4.2
+  flutter_animate: ^4.4.0
   flutter_localizations:
     sdk: flutter
   intl: any  
